@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meus Chamados</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h2>Sistema de Chamdos</h2>
+      <div>
+        <a href="dashboard.html" class="btn-link small">Dashboard</a>
+        <a href="abrir-chamado.html" class="btn-link small">Abrir Chamado</a>
+        <button onclick="logout()">Sair</button>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <h1>Meus Chamados</h1>
+      <p class="subtitle">Acompnhe seus chamados abertos e fechados</p>
+
+      <div id="listaChamados" class="lista-chamados"></div>
+    </main>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>

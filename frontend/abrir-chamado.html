@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abrir Chamado</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h2>Sistema de Chamados</h2>
+      <div>
+        <a href="dashboard.html" class="btn-link small">Dashboard</a>
+        <button onclick="logout()">Sair</button>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <h1>Abrir Novo Chamado</h1>
+      <p class="subtitle">Preencher os dados abaixo</p>
+
+      <div class="form-box">
+        <form id="chamadoForm">
+          <label for="titulo">Título</label>
+          <input
+            type="text"
+            id="titulo"
+            placeholder="Ex: internete não funciona"
+            required
+          />
+
+          <label for="descricao">Descrição</label>
+          <textarea
+            id="descricao"
+            placeholder="Descreva o problema..."
+            required
+          ></textarea>
+
+          <label for="categoria">Categoria</label>
+          <select id="categoria" required>
+            <option value="">Selecione</option>
+            <option value="Rede">Rede</option>
+            <option value="Hardware">Hardware</option>
+            <option value="Software">Software</option>
+            <option value="Impressora">Impressora</option>
+            <option value="Sistema">Sistema</option>
+            <option value="E-mail">E-mail</option>
+          </select>
+
+          <label for="prioridade">Prioridade</label>
+          <select id="prioridade" required>
+            <option value="">Selecione</option>
+            <option value="Baixa">Baixa</option>
+            <option value="Média">Média</option>
+            <option value="Alta">Alta</option>
+          </select>
+
+          <button type="submit">Salvar Chamado</button>
+        </form>
+
+        <p id="mensagemChamado" class="mensagem"></p>
+      </div>
+    </main>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
