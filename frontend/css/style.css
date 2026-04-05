@@ -212,3 +212,45 @@ select:focus {
 .acoes-dashboard {
   margin-top: 1.5rem;
 }
+
+/* Filtros */
+.filtro-box {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.filtro-box input,
+.filtro-box select {
+  flex: 1;
+  min-height: 220px;
+}
+
+/* Botões pequenos nos cards */
+.acoes-chamado {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-editar {
+  background: #f0ad4e;
+}
+
+.btn-editar:hover {
+  background: #d9963d;
+}
+
+.btn-excluir {
+  background: #d9534f;
+}
+
+.btn-excluir:hover {
+  background: #b63d3a;
+}
+
+.btn-fechar {
+  background: #1f3c88;
+}

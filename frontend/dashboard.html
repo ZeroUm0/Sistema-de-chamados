@@ -1,48 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - Sistema de Chamados</title>
-    <link rel="stylesheet" href="./css/style.css"
-</head>
-<body>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
     <header class="topbar">
-        <h2>Sistema de Chamados</h2>
-        <button onclick="logout()">Sair</button>
+      <h2>Sistema de Chamados</h2>
+      <button onclick="logout()">Sair</button>
     </header>
 
     <main class="dashboard">
-        <h1>Dashboard</h1>
-        <p class="subtitle">Resumo dos chamados</p>
+      <h1>Dashboard</h1>
+      <p class="subtitle">Resumo dos chamados</p>
 
-        <div class="cards">
-            <div class="info-card">
-                <h3>12</h3>
-                <p>Chamdos Abertos</p>
-            </div>
-
-            <div class="info-card">
-                <h3>20</h3>
-                <p>Fechados</p>
-            </div>
+      <div class="cards">
+        <div class="info-card">
+          <h3 id="totalChamados">0</h3>
+          <p>Total de Chamados</p>
         </div>
 
-        <section class="welcome-box">
-            <h2>Bem-Vindo ao sistema</h2>
-            <p>
-                Aqui você poderá abrir, acompanhar e gerenciar chamados de suporte técnico
-            </p>
+        <div class="info-card">
+          <h3 id="totalAbertos">0</h3>
+          <p>Chamados Abertos</p>
+        </div>
 
-            <div class="acoes-dashboard">
-                <a href="abrir-chamado.html" class="btn-link">Abrir Chamado</a>
-                <a href="meus-chamados.html" class="btn-link">Meus Chamados</a>
-            </div>
+        <div class="info-card">
+          <h3 id="totalFechados">0</h3>
+          <p>Chamados Fechados</p>
+        </div>
+      </div>
 
+      <section class="welcome-box">
+        <h2>Bem-vindo ao sistema 👨‍💻</h2>
+        <p>
+          Aqui você poderá abrir, acompanhar e gerenciar chamados de suporte
+          técnico.
+        </p>
 
-        </section>
+        <div class="acoes-dashboard">
+          <a href="abrir-chamado.html" class="btn-link">Abrir Chamado</a>
+          <a href="meus-chamados.html" class="btn-link">Meus Chamados</a>
+        </div>
+      </section>
     </main>
 
     <script src="./js/script.js"></script>
-</body>
+  </body>
 </html>

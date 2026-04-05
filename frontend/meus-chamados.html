@@ -18,7 +18,21 @@
 
     <main class="dashboard">
       <h1>Meus Chamados</h1>
-      <p class="subtitle">Acompnhe seus chamados abertos e fechados</p>
+      <p class="subtitle">Acompnhe, filtre, edite e exclua seus chamados</p>
+
+      <div class="filtros-box">
+        <input
+          type="text"
+          id="pesquisaChamado"
+          placeholder="Pesquisar por Título..."
+        />
+
+        <select id="filtroStatus">
+          <option value="Todos">Todos</option>
+          <option value="Aberto">Aberto</option>
+          <option value="Fechado">Fechado</option>
+        </select>
+      </div>
 
       <div id="listaChamados" class="lista-chamados"></div>
     </main>

@@ -80,6 +80,18 @@ function carregarChamados() {
 
   let chamados = JSON.parse(localStorage.getItem("chamados")) || [];
 
+  const pesquisa =
+    document.getElementById("pesquisaChamado")?.value.toLowerCase() || "";
+  const filtroStatus =
+    document.getElementById("filtroStatus")?.value || "Todos";
+
+  chamados = chamados.filter((chamado) => {
+    const combinaPesquisa = chamado.titulo.toLowerCase().includes(pesquisa);
+    const combinaStatus =
+      filtroStatus === "Todos" || chamado.status === filtroStatus;
+    return combinaPesquisa && combinaStatus;
+  });
+
   if (chamados.length === 0) {
     listaChamados.innerHTML = "<p>Nenhum chamado encontrado.</p>";
     return;
@@ -99,11 +111,16 @@ function carregarChamados() {
             ${chamado.status}
           </span>
         </p>
-        ${
-          chamado.status === "Aberto"
-            ? `<button onclick="fecharChamado(${chamado.id})">Fechar Chamado</button>`
-            : ""
-        }
+
+        <div class="acoes-chamado">
+          ${
+            chamado.status === "Aberto"
+              ? `<button class="btn-fechar" onclick="fecharChamado(${chamado.id})">Fechar</button>`
+              : ""
+          }
+          <button class="btn-editar" onclick="editarChamado(${chamado.id})">Editar</button>
+          <button class="btn-excluir" onclick="excluirChamado(${chamado.id})">Excluir</button>
+        </div>
       </div>
     `;
   });
@@ -128,21 +145,75 @@ function fecharChamado(id) {
 }
 
 // =======================
+// EXCLUIR CHAMADO
+// =======================
+function excluirChamado(id) {
+  const confirmar = confirm("Tem certeza que deseja excluir este chamado?");
+  if (!confirmar) return;
+
+  let chamados = JSON.parse(localStorage.getItem("chamados")) || [];
+  chamados = chamados.filter((chamado) => chamado.id !== id);
+
+  localStorage.setItem("chamados", JSON.stringify(chamados));
+  carregarChamados();
+  atualizarDashboard();
+}
+
+// =======================
+// EDITAR CHAMADO
+// =======================
+function editarChamado(id) {
+  let chamados = JSON.parse(localStorage.getItem("chamados")) || [];
+  const chamado = chamados.find((c) => c.id === id);
+
+  if (!chamado) return;
+
+  const novoTitulo = prompt("Editar título:", chamado.titulo);
+  if (novoTitulo === null || novoTitulo.trim() === "") return;
+
+  const novaDescricao = prompt("Editar descrição:", chamado.descricao);
+  if (novaDescricao === null || novaDescricao.trim() === "") return;
+
+  chamado.titulo = novoTitulo;
+  chamado.descricao = novaDescricao;
+
+  localStorage.setItem("chamados", JSON.stringify(chamados));
+  carregarChamados();
+}
+
+// =======================
 // DASHBOARD
 // =======================
 function atualizarDashboard() {
+  const totalChamados = document.getElementById("totalChamados");
   const totalAbertos = document.getElementById("totalAbertos");
   const totalFechados = document.getElementById("totalFechados");
 
-  if (!totalAbertos || !totalFechados) return;
+  if (!totalAbertos || !totalFechados || !totalChamados) return;
 
   let chamados = JSON.parse(localStorage.getItem("chamados")) || [];
 
+  const total = chamados.length;
   const abertos = chamados.filter((c) => c.status === "Aberto").length;
   const fechados = chamados.filter((c) => c.status === "Fechado").length;
 
+  totalChamados.textContent = total;
   totalAbertos.textContent = abertos;
   totalFechados.textContent = fechados;
+}
+
+// =======================
+// EVENTOS DE FILTRO
+// =======================
+const pesquisaChamado = document.getElementById("pesquisaChamado");
+const filtroStatus = document.getElementById("filtroStatus");
+
+if (pesquisaChamado) {
+  pesquisaChamado.addEventListener("input", carregarChamados);
+}
+
+if (filtroStatus) {
+  filtroStatus.addEventListener("change", carregarChamados);
 }
 
 // Executar ao carregar
