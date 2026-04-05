@@ -44,7 +44,11 @@ form {
   flex-direction: column;
 }
 
+<<<<<<< HEAD
 label {
+=======
+Iabel {
+>>>>>>> ee995764dd41db756e4781c5dc23e3b8416888e9
   margin-bottom: 0.4rem;
   font-weight: bold;
 }
@@ -107,7 +111,11 @@ button:hover {
   color: #1f3c88;
 }
 
+<<<<<<< HEAD
 .cards {
+=======
+.card {
+>>>>>>> ee995764dd41db756e4781c5dc23e3b8416888e9
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
@@ -133,6 +141,7 @@ button:hover {
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
+<<<<<<< HEAD
 
 /*Link com botão */
 .btn-link {
@@ -212,3 +221,5 @@ select:focus {
 .acoes-dashboard {
   margin-top: 1.5rem;
 }
+=======
+>>>>>>> ee995764dd41db756e4781c5dc23e3b8416888e9
