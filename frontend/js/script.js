@@ -1,25 +1,15 @@
-<<<<<<< HEAD
 // =======================
 // LOGIN
 // =======================
-=======
->>>>>>> ee995764dd41db756e4781c5dc23e3b8416888e9
 const form = document.getElementById("loginForm");
-
-console.log("JS carregou!");
 
 if (form) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    console.log("Botão Entrar clicado!");
-
     const email = document.getElementById("email").value;
     const senha = document.getElementById("senha").value;
     const mensagem = document.getElementById("mensagem");
-
-    console.log("Email digitado:", email);
-    console.log("Senha digitada:", senha);
 
     if (email === "admin@email.com" && senha === "1234") {
       mensagem.style.color = "green";
@@ -35,7 +25,6 @@ if (form) {
   });
 }
 
-<<<<<<< HEAD
 // =======================
 // LOGOUT
 // =======================
@@ -159,8 +148,3 @@ function atualizarDashboard() {
 // Executar ao carregar
 carregarChamados();
 atualizarDashboard();
-=======
-function logout() {
-  window.location.href = "index.html";
-}
->>>>>>> ee995764dd41db756e4781c5dc23e3b8416888e9
